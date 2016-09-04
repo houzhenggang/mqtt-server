@@ -1,2 +1,4 @@
 # mqtt-server
-mqtt+netty  开发中
+学习下mqtt+netty
+
+参考一个ocean项目
