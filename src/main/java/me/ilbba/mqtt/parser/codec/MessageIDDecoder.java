@@ -17,7 +17,7 @@ package me.ilbba.mqtt.parser.codec;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.util.AttributeMap;
-import me.ilbba.mqtt.protocol.message.MessageIDMessage;
+import me.ilbba.mqtt.protocol.MessageIDMessage;
 
 import java.util.List;
 

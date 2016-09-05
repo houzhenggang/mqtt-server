@@ -20,7 +20,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.CorruptedFrameException;
 import io.netty.handler.codec.MessageToByteEncoder;
 import me.ilbba.mqtt.parser.codec.*;
-import me.ilbba.mqtt.protocol.message.AbstractMessage;
+import me.ilbba.mqtt.protocol.AbstractMessage;
 
 import java.util.HashMap;
 import java.util.Map;

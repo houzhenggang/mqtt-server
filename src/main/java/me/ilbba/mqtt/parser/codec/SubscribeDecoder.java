@@ -19,8 +19,8 @@ import io.netty.buffer.ByteBuf;
 import io.netty.handler.codec.CorruptedFrameException;
 import io.netty.util.AttributeMap;
 import me.ilbba.mqtt.util.CodecUtils;
-import me.ilbba.mqtt.protocol.message.AbstractMessage;
-import me.ilbba.mqtt.protocol.message.SubscribeMessage;
+import me.ilbba.mqtt.protocol.AbstractMessage;
+import me.ilbba.mqtt.protocol.SubscribeMessage;
 
 import java.io.UnsupportedEncodingException;
 import java.util.List;

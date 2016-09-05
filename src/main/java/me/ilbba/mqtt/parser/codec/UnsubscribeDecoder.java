@@ -19,8 +19,8 @@ import io.netty.buffer.ByteBuf;
 import io.netty.handler.codec.CorruptedFrameException;
 import io.netty.util.AttributeMap;
 import me.ilbba.mqtt.util.CodecUtils;
-import me.ilbba.mqtt.protocol.message.AbstractMessage;
-import me.ilbba.mqtt.protocol.message.UnsubscribeMessage;
+import me.ilbba.mqtt.protocol.AbstractMessage;
+import me.ilbba.mqtt.protocol.UnsubscribeMessage;
 
 import java.util.List;
 

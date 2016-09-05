@@ -18,8 +18,8 @@ package me.ilbba.mqtt.parser.codec;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import me.ilbba.mqtt.util.CodecUtils;
-import me.ilbba.mqtt.protocol.message.AbstractMessage;
-import me.ilbba.mqtt.protocol.message.PubRelMessage;
+import me.ilbba.mqtt.protocol.AbstractMessage;
+import me.ilbba.mqtt.protocol.PubRelMessage;
 
 /**
  * @author andrea

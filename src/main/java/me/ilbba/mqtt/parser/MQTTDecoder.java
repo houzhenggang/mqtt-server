@@ -22,7 +22,7 @@ import io.netty.handler.codec.ByteToMessageDecoder;
 import io.netty.handler.codec.CorruptedFrameException;
 import io.netty.util.AttributeKey;
 import me.ilbba.mqtt.parser.codec.*;
-import me.ilbba.mqtt.protocol.message.AbstractMessage;
+import me.ilbba.mqtt.protocol.AbstractMessage;
 import me.ilbba.mqtt.util.CodecUtils;
 
 import java.util.List;

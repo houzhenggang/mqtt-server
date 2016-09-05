@@ -15,7 +15,7 @@
  */
 package me.ilbba.mqtt.util;
 
-import me.ilbba.mqtt.protocol.message.AbstractMessage;
+import me.ilbba.mqtt.protocol.AbstractMessage;
 
 /**
  * Common utils methodd used in codecs.

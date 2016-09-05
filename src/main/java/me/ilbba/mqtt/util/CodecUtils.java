@@ -21,7 +21,7 @@ import io.netty.handler.codec.CorruptedFrameException;
 import io.netty.util.Attribute;
 import io.netty.util.AttributeMap;
 import me.ilbba.mqtt.parser.MQTTDecoder;
-import me.ilbba.mqtt.protocol.message.AbstractMessage;
+import me.ilbba.mqtt.protocol.AbstractMessage;
 import org.slf4j.LoggerFactory;
 
 import java.io.UnsupportedEncodingException;

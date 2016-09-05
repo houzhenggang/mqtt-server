@@ -21,8 +21,8 @@ import io.netty.buffer.Unpooled;
 import io.netty.handler.codec.CorruptedFrameException;
 import io.netty.util.AttributeMap;
 import me.ilbba.mqtt.util.CodecUtils;
-import me.ilbba.mqtt.protocol.message.AbstractMessage;
-import me.ilbba.mqtt.protocol.message.PublishMessage;
+import me.ilbba.mqtt.protocol.AbstractMessage;
+import me.ilbba.mqtt.protocol.PublishMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

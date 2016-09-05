@@ -15,8 +15,8 @@
  */
 package me.ilbba.mqtt.parser.codec;
 
-import me.ilbba.mqtt.protocol.message.MessageIDMessage;
-import me.ilbba.mqtt.protocol.message.PubCompMessage;
+import me.ilbba.mqtt.protocol.MessageIDMessage;
+import me.ilbba.mqtt.protocol.PubCompMessage;
 
 /**
  * @author andrea

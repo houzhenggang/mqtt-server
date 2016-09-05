@@ -23,8 +23,8 @@ import io.netty.util.AttributeKey;
 import io.netty.util.AttributeMap;
 import me.ilbba.mqtt.parser.MQTTDecoder;
 import me.ilbba.mqtt.util.CodecUtils;
-import me.ilbba.mqtt.protocol.message.AbstractMessage;
-import me.ilbba.mqtt.protocol.message.ConnectMessage;
+import me.ilbba.mqtt.protocol.AbstractMessage;
+import me.ilbba.mqtt.protocol.ConnectMessage;
 
 import java.io.UnsupportedEncodingException;
 import java.util.List;
