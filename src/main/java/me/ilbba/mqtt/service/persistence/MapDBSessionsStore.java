@@ -13,7 +13,7 @@
  *
  * You may elect to redistribute this code under either of these licenses.
  */
-package me.ilbba.mqtt.service.impl;
+package me.ilbba.mqtt.service.persistence;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;

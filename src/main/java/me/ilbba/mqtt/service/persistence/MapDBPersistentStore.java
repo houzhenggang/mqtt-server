@@ -14,7 +14,7 @@
  * You may elect to redistribute this code under either of these licenses.
  */
 
-package me.ilbba.mqtt.service.impl;
+package me.ilbba.mqtt.service.persistence;
 
 import me.ilbba.mqtt.service.IMessagesStore;
 import me.ilbba.mqtt.service.ISessionsStore;
