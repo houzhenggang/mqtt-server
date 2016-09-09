@@ -16,7 +16,7 @@
 package me.ilbba.mqtt.spi.subscription;
 
 import io.netty.handler.codec.mqtt.MqttQoS;
-import me.ilbba.mqtt.spi.ISessionsStore;
+import me.ilbba.mqtt.spi.iface.ISessionsStore;
 
 import java.io.Serializable;
 

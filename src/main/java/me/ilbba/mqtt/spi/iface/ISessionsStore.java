@@ -13,7 +13,7 @@
  *
  * You may elect to redistribute this code under either of these licenses.
  */
-package me.ilbba.mqtt.spi;
+package me.ilbba.mqtt.spi.iface;
 
 import me.ilbba.mqtt.spi.subscription.Subscription;
 

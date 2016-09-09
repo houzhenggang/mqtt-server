@@ -17,8 +17,8 @@ package me.ilbba.mqtt.spi.impl;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import me.ilbba.mqtt.spi.IMessagesStore;
-import me.ilbba.mqtt.spi.ISessionsStore;
+import me.ilbba.mqtt.spi.iface.IMessagesStore;
+import me.ilbba.mqtt.spi.iface.ISessionsStore;
 import me.ilbba.mqtt.spi.subscription.Subscription;
 import me.ilbba.mqtt.util.MapUtils;
 import org.mapdb.DB;

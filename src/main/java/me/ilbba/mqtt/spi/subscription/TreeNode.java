@@ -15,7 +15,7 @@
  */
 package me.ilbba.mqtt.spi.subscription;
 
-import me.ilbba.mqtt.spi.ISessionsStore.ClientTopicCouple;
+import me.ilbba.mqtt.spi.iface.ISessionsStore.ClientTopicCouple;
 import com.google.common.collect.Lists;
 
 import java.util.*;

@@ -16,8 +16,8 @@
 
 package me.ilbba.mqtt.spi.impl;
 
-import me.ilbba.mqtt.spi.IMessagesStore;
-import me.ilbba.mqtt.spi.ISessionsStore;
+import me.ilbba.mqtt.spi.iface.IMessagesStore;
+import me.ilbba.mqtt.spi.iface.ISessionsStore;
 import org.mapdb.DB;
 import org.mapdb.DBMaker;
 import org.slf4j.Logger;

@@ -1,6 +1,6 @@
 package me.ilbba.mqtt.spi.impl;
 
-import me.ilbba.mqtt.spi.IAuthenticator;
+import me.ilbba.mqtt.spi.iface.IAuthenticator;
 
 /**
  * 身份认证接口

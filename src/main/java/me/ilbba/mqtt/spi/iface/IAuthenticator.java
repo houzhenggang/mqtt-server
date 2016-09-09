@@ -1,4 +1,4 @@
-package me.ilbba.mqtt.spi;
+package me.ilbba.mqtt.spi.iface;
 
 /**
  * 身份认证接口
