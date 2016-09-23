@@ -29,7 +29,7 @@ public interface ISessionsStore {
 
     void updateCleanStatus(String clientID, boolean cleanSession);
 
-    public class ClientTopicCouple {
+    class ClientTopicCouple {
         public final String topicFilter;
         public final String clientID;
 

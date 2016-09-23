@@ -11,7 +11,8 @@ import me.ilbba.mqtt.spi.iface.IAuthenticator;
  */
 public class DefaultAuthenticator implements IAuthenticator {
 
+    //TODO: 查询数据库或者redis
     public boolean checkValid(String username, String password) {
-        return false;
+        return true;
     }
 }

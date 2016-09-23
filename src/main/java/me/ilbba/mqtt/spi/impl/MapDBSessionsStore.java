@@ -35,7 +35,7 @@ import java.util.concurrent.ConcurrentMap;
  */
 class MapDBSessionsStore implements ISessionsStore {
 
-    private static final Logger LOG = LoggerFactory.getLogger(MapDBSessionsStore.class);
+    private static final Logger logger = LoggerFactory.getLogger(MapDBSessionsStore.class);
 
     //maps clientID->[MessageId -> guid]
     private ConcurrentMap<String, Map<Integer, String>> m_inflightStore;
@@ -66,18 +66,18 @@ class MapDBSessionsStore implements ISessionsStore {
 
     @Override
     public void addNewSubscription(Subscription newSubscription) {
-        LOG.debug("addNewSubscription invoked with subscription {}", newSubscription);
+        logger.debug("addNewSubscription invoked with subscription {}", newSubscription);
         final String clientID = newSubscription.getClientId();
         m_db.getHashMap("subscriptions_" + clientID).put(newSubscription.getTopicFilter(), newSubscription);
 
-        if (LOG.isTraceEnabled()) {
-            LOG.trace("subscriptions_{}: {}", clientID, m_db.getHashMap("subscriptions_" + clientID));
+        if (logger.isTraceEnabled()) {
+            logger.trace("subscriptions_{}: {}", clientID, m_db.getHashMap("subscriptions_" + clientID));
         }
     }
 
     @Override
     public void removeSubscription(String topicFilter, String clientID) {
-        LOG.debug("removeSubscription topic filter: {} for clientID: {}", topicFilter, clientID);
+        logger.debug("removeSubscription topic filter: {} for clientID: {}", topicFilter, clientID);
         if (!m_db.exists("subscriptions_" + clientID)) {
             return;
         }
@@ -86,13 +86,13 @@ class MapDBSessionsStore implements ISessionsStore {
 
     @Override
     public void wipeSubscriptions(String clientID) {
-        LOG.debug("wipeSubscriptions");
-        if (LOG.isTraceEnabled()) {
-            LOG.trace("Subscription pre wipe: subscriptions_{}: {}", clientID, m_db.getHashMap("subscriptions_" + clientID));
+        logger.debug("wipeSubscriptions");
+        if (logger.isTraceEnabled()) {
+            logger.trace("Subscription pre wipe: subscriptions_{}: {}", clientID, m_db.getHashMap("subscriptions_" + clientID));
         }
         m_db.delete("subscriptions_" + clientID);
-        if (LOG.isTraceEnabled()) {
-            LOG.trace("Subscription post wipe: subscriptions_{}: {}", clientID, m_db.getHashMap("subscriptions_" + clientID));
+        if (logger.isTraceEnabled()) {
+            logger.trace("Subscription post wipe: subscriptions_{}: {}", clientID, m_db.getHashMap("subscriptions_" + clientID));
         }
     }
 
@@ -105,14 +105,14 @@ class MapDBSessionsStore implements ISessionsStore {
                 allSubscriptions.add(new ClientTopicCouple(clientID, topicFilter));
             }
         }
-        LOG.debug("retrieveAllSubscriptions returning subs {}", allSubscriptions);
+        logger.debug("retrieveAllSubscriptions returning subs {}", allSubscriptions);
         return allSubscriptions;
     }
 
     @Override
     public Subscription getSubscription(ClientTopicCouple couple) {
         ConcurrentMap<String, Subscription> clientSubscriptions = m_db.getHashMap("subscriptions_" + couple.clientID);
-        LOG.debug("subscriptions_{}: {}", couple.clientID, clientSubscriptions);
+        logger.debug("subscriptions_{}: {}", couple.clientID, clientSubscriptions);
         return clientSubscriptions.get(couple.topicFilter);
     }
 
@@ -123,12 +123,12 @@ class MapDBSessionsStore implements ISessionsStore {
 
 //    @Override
 //    public ClientSession createNewSession(String clientID, boolean cleanSession) {
-//        LOG.debug("createNewSession for client <{}> with clean flag <{}>", clientID, cleanSession);
+//        logger.debug("createNewSession for client <{}> with clean flag <{}>", clientID, cleanSession);
 //        if (m_persistentSessions.containsKey(clientID)) {
-//            LOG.error("already exists a session for client <{}>, bad condition", clientID);
+//            logger.error("already exists a session for client <{}>, bad condition", clientID);
 //            throw new IllegalArgumentException("Can't create a session with the ID of an already existing" + clientID);
 //        }
-//        LOG.debug("clientID {} is a newcome, creating it's empty subscriptions set", clientID);
+//        logger.debug("clientID {} is a newcome, creating it's empty subscriptions set", clientID);
 //        m_persistentSessions.putIfAbsent(clientID, new MapDBPersistentStore.PersistentSession(cleanSession));
 //        return new ClientSession(clientID, m_messagesStore, this, cleanSession);
 //    }
@@ -173,7 +173,7 @@ class MapDBSessionsStore implements ISessionsStore {
     public void inFlightAck(String clientID, int messageID) {
         Map<Integer, String> m = this.m_inflightStore.get(clientID);
         if (m == null) {
-            LOG.error("Can't find the inFlight record for client <{}>", clientID);
+            logger.error("Can't find the inFlight record for client <{}>", clientID);
             return;
         }
         m.remove(messageID);
