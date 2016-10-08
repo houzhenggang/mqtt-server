@@ -33,15 +33,15 @@ import java.util.concurrent.ConcurrentMap;
  *
  * @author andrea
  */
-class MapDBSessionsStore implements ISessionsStore {
+class DefaultSessionsStore implements ISessionsStore {
 
-    private static final Logger logger = LoggerFactory.getLogger(MapDBSessionsStore.class);
+    private static final Logger logger = LoggerFactory.getLogger(DefaultSessionsStore.class);
 
     //maps clientID->[MessageId -> guid]
     private ConcurrentMap<String, Map<Integer, String>> m_inflightStore;
     //map clientID <-> set of currently in flight packet identifiers
     private Map<String, Set<Integer>> m_inFlightIds;
-    private ConcurrentMap<String, MapDBPersistentStore.PersistentSession> m_persistentSessions;
+    private ConcurrentMap<String, DefaultPersistentStore.PersistentSession> m_persistentSessions;
     //maps clientID->[guid*], insertion order cares, it's queue
     private ConcurrentMap<String, List<String>> m_enqueuedStore;
     //maps clientID->[messageID*]
@@ -50,7 +50,7 @@ class MapDBSessionsStore implements ISessionsStore {
     private final DB m_db;
     private final IMessagesStore m_messagesStore;
 
-    MapDBSessionsStore(DB db, IMessagesStore messagesStore) {
+    DefaultSessionsStore(DB db, IMessagesStore messagesStore) {
         m_db = db;
         m_messagesStore = messagesStore;
     }
@@ -129,7 +129,7 @@ class MapDBSessionsStore implements ISessionsStore {
 //            throw new IllegalArgumentException("Can't create a session with the ID of an already existing" + clientID);
 //        }
 //        logger.debug("clientID {} is a newcome, creating it's empty subscriptions set", clientID);
-//        m_persistentSessions.putIfAbsent(clientID, new MapDBPersistentStore.PersistentSession(cleanSession));
+//        m_persistentSessions.putIfAbsent(clientID, new DefaultPersistentStore.PersistentSession(cleanSession));
 //        return new ClientSession(clientID, m_messagesStore, this, cleanSession);
 //    }
 //
@@ -139,13 +139,13 @@ class MapDBSessionsStore implements ISessionsStore {
 //            return null;
 //        }
 //
-//        MapDBPersistentStore.PersistentSession storedSession = m_persistentSessions.get(clientID);
+//        DefaultPersistentStore.PersistentSession storedSession = m_persistentSessions.get(clientID);
 //        return new ClientSession(clientID, m_messagesStore, this, storedSession.cleanSession);
 //    }
 
     @Override
     public void updateCleanStatus(String clientID, boolean cleanSession) {
-        m_persistentSessions.put(clientID, new MapDBPersistentStore.PersistentSession(cleanSession));
+        m_persistentSessions.put(clientID, new DefaultPersistentStore.PersistentSession(cleanSession));
     }
 
     /**

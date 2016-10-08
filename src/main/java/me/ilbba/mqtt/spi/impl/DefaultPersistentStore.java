@@ -33,7 +33,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * MapDB main persistence implementation
  */
-public class MapDBPersistentStore {
+public class DefaultPersistentStore {
 
     /**
      * This is a DTO used to persist minimal status (clean session and activation status) of
@@ -47,7 +47,7 @@ public class MapDBPersistentStore {
         }
     }
 
-    private static final Logger LOG = LoggerFactory.getLogger(MapDBPersistentStore.class);
+    private static final Logger LOG = LoggerFactory.getLogger(DefaultPersistentStore.class);
 
     private DB m_db;
     private final String m_storePath;
@@ -56,7 +56,7 @@ public class MapDBPersistentStore {
     protected final ScheduledExecutorService m_scheduler = Executors.newScheduledThreadPool(1);
 
 
-    public MapDBPersistentStore() {
+    public DefaultPersistentStore() {
         this.m_storePath = System.getProperty("user.dir") + File.separator + "persistent_store";
         this.m_autosaveInterval = 30;
     }
@@ -72,7 +72,7 @@ public class MapDBPersistentStore {
 //    }
 
     public ISessionsStore sessionsStore(IMessagesStore msgStore) {
-        ISessionsStore sessionsStore = new MapDBSessionsStore(m_db, msgStore);
+        ISessionsStore sessionsStore = new DefaultSessionsStore(m_db, msgStore);
         sessionsStore.initStore();
         return sessionsStore;
     }
@@ -114,7 +114,7 @@ public class MapDBPersistentStore {
     }
 
     public static void main(String[] args) {
-        MapDBPersistentStore persistentStore = new MapDBPersistentStore();
+        DefaultPersistentStore persistentStore = new DefaultPersistentStore();
         persistentStore.initStore();
 
 
